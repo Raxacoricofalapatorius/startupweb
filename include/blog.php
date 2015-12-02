@@ -28,10 +28,10 @@
 					?>
 
 					<div class="row">
-						<h2><?php echo $articles['titre'];?></h2>
+						<h2><a style="text-decoration:none;color:rgb(51, 51, 51);" href="article.php?article=<?php echo $articles['id'];?>"><?php echo $articles['titre'];?></a></h2>
 						<p><?php echo $articles['date_creation'];?></p>
 						<p><?php echo substr( $articles['contenu'] , 0 , 255);?> [...]</p>
-						<p><a href="">Lire plus</a></p>
+						<p><a href="article.php?article=<?php echo $articles['id'];?>">Lire plus</a></p>
 					</div>
 		
 				<?php } 
@@ -85,12 +85,21 @@
 		</div>
 		<div class="col-md-4 col-md-push-2">
 			<div class="well">
-				<h4>Articles récents</h4>
-				<ul class="list-unstyled">
-					<li>Titre 1</li>
-					<li>Titre 2</li>
-					<li>Titre 3</li>
-					<li>Titre 4</li>
+				<h4>Vidéos récentes</h4>
+				<ul>
+			<?php 
+				$reponse = $bdd->query('SELECT * FROM articles WHERE video = 1 ORDER BY id DESC LIMIT 0, 20');
+				
+				while ($articles = $reponse->fetch())
+				{
+					?>
+
+					<li><a style="text-decoration:none;color:rgb(51, 51, 51);" href="article.php?article=<?php echo $articles['id'];?>"><?php echo $articles['titre'];?></a></li>
+		
+				<?php } 
+
+				$reponse->closeCursor();
+			?>
 				</ul>
 			</div>
 		</div>

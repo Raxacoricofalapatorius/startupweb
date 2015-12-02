@@ -28,21 +28,21 @@
     <div class="row">
       <div class="col-sm-6  col-lg-4 col-md-4">
         <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-        <h2>Amélie MARTINS</h2>
+        <h2 id="amelie">Amélie MARTINS</h2>
         <h5>Secrétaire / Trésorière</h5>
         <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
         <p><a class="btn btn-default" href="mailto:martinsa@novus-studio.fr" role="button">martinsa@novus-studio.fr</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-sm-6 col-lg-4 col-md-4">
         <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-        <h2>Dylan GUELTON</h2>
+        <h2 id="dylan">Dylan GUELTON</h2>
         <h5>Président / Fondateur</h5>
         <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
         <p><a class="btn btn-default" href="mailto:gueltond@novus-studio.fr" role="button">gueltond@novus-studio.fr</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-sm-6 col-lg-4 col-md-4">
         <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-        <h2>Thibault BRUN</h2>
+        <h2 id="thibault">Thibault BRUN</h2>
         <h5>Vice-président</h5>
         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
         <p><a class="btn btn-default" href="mailto:brunt@novus-studio.fr" role="button">brunt@novus-studio.fr</a></p>
@@ -50,56 +50,74 @@
     </div><!-- /.row -->
   </div>
 
-
-  <div class="container">
+ 
+<div class="container">
     <div class="row">
         <div class="col-md-6">
-            <div class="well well-sm">
-                <form class="form-horizontal" method="post">
-                    <fieldset>
-                        <legend class="text-center header">Nous Contacter</legend>
-                        <div class="form-group">
-                            <div class="col-md-10 col-md-offset-1">
-                                <input id="nom" name="nom" type="text" placeholder="Nom" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-10 col-md-offset-1">
-                                <input id="prenom" name="prenom" type="text" placeholder="Prénom" class="form-control">
-                            </div>
-                        </div>
+            <div class="well well-sm" style="height:591px;">
+                <?php if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['tel']) && isset($_POST['destinataire']) && isset($_POST['message'])) { ?>
+                    <?php include('include/contactaction.php');?>
+                <?php }
+                else { ?>
+                        <form class="form-horizontal" method="post" action="contact.php">
+                            <fieldset>
+                                <legend class="text-center header">Nous Contacter</legend>
+                                <div class="form-group">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <input id="nom" name="nom" type="text" placeholder="Nom" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <input id="prenom" name="prenom" type="text" placeholder="Prénom" class="form-control">
+                                    </div>
+                                </div>
 
-                        <div class="form-group">
-                            <div class="col-md-10 col-md-offset-1">
-                                <input id="email" name="email" type="text" placeholder="Email" class="form-control">
-                            </div>
-                        </div>
+                                <div class="form-group">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <input id="email" name="email" type="text" placeholder="Email" class="form-control">
+                                    </div>
+                                </div>
 
-                        <div class="form-group">
-                            <div class="col-md-10 col-md-offset-1">
-                                <input id="tel" name="tel" type="tel" placeholder="Téléphone" class="form-control">
-                            </div>
-                        </div>
+                                <div class="form-group">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <input id="tel" name="tel" type="tel" placeholder="Téléphone" class="form-control">
+                                    </div>
+                                </div>
 
-                        <div class="form-group">
-                            <div class="col-md-10 col-md-offset-1">
-                                <textarea class="form-control" id="message" name="message" placeholder="Votre message" rows="7"></textarea>
-                            </div>
-                        </div>
+                                <div class="form-group">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <select id="destinataire" name="destinataire" class="form-control">
+                                            <option>-- Destinataire --</option>
+                                            <option value="contact">Contact Général</option>
+                                            <option value="dylan">Dylan GUELTON - Président</option>
+                                            <option value="amelie">Amélie MARTINS - Secrétaire/Trésorière</option>
+                                            <option value="thibault">Thibault BRUN - Vice-président</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-                        <div class="form-group">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
+                                <div class="form-group">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <textarea class="form-control" id="message" name="message" placeholder="Votre message" rows="7"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+    <?php } ?>    
+    </div>
+</div>
+        
         <div class="col-md-6">
             <div>
                 <div class="panel panel-default">
-                    <div class="text-center header">Nous rencontrer</div>
+                    <div class="text-center header" style="padding-top:19px;padding-right:19px;padding-left:19px;height:78px;">Nous rencontrer</div>
                     <div class="panel-body text-center">
                         <div>
                         Salle Marcel Carné</br> (au dessus de la bibliothèque),</div>
@@ -161,6 +179,7 @@
 
 
   <?php include('include/footer.php'); ?>
+
 
 
 

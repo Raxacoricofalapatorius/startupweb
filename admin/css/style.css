@@ -23,77 +23,7 @@
   width: auto;
 }
 
-/* CAROUSEL
--------------------------------------------------- */
 
-.carousel {
-  height: 500px;
-  margin-bottom: 60px;
-}
-
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-  z-index: 10;
-}
-
-/* Declare heights because of positioning of img element */
-.carousel .item {
-  height: 500px;
-  background-color: #777;
-}
-.carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 500px;
-}
-
-/* STAFF
--------------------------------------------------- */
-
-.staff .col-lg-4 {
-  margin-bottom: 20px;
-  text-align: center;
-}
-.staff h2 {
-  font-weight: normal;
-}
-.staff .col-lg-4 p {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-/* ARTICLES
--------------------------------------------------- */
-
-.title-articles-row {
-  margin-top: 80px;
-  text-transform: uppercase;
-}
-
-.img-article .panel-default{
-  position: relative;
-  top: -18px;
-}
-
-.img-article img {
-  width: 100%; 
-}
-
-.img-article h6 {
-  text-transform: uppercase; 
-  font-weight: bold;
-}
-
-.contenu-article {
-  position: relative;
-  top: -20px;
-}
-
-.articles-row {
-  margin-bottom: 30px;
-}
 
 
 /* FOOTER
@@ -102,34 +32,6 @@
 footer {
   padding-left: 10px;
   padding-right: 10px;
-}
-
-
-/* BLOG
--------------------------------------------------- */
-
-.page-header {
-  margin-top: 0px;
-  height: 230px;
-  background-color: #005ed1;
-  background-image: url(../img/bckgd-blog-header.png);
-}
-
-.page-header h1 {
-  position: relative;
-  top: 100px;
-  color: white;
-}
-
-.page-header h1 small {
-  color: lightgrey;
-}
-
-
-/* BLOG
--------------------------------------------------- */
-#info_article {
-  margin-top: 10px;
 }
 
 
@@ -159,4 +61,8 @@ footer {
 -------------------------------------------------- */
 .divider {
   margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+body {
+  padding-top: 80px;
 }

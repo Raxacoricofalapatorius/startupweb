@@ -18,7 +18,9 @@
               <ul class="nav navbar-nav">
                 <li <?php if( $accueil == true ) { echo "class=\"active\"";}?>><a href="index.php">Accueil</a></li>
                 <li <?php if( $blog == true ) { echo "class=\"active\"";}?>><a href="blog.php">Blog</a></li>
+                <li <?php if( $reglement == true ) { echo "class=\"active\"";}?>><a href="reglement.php">Règlement & Statuts</a></li>
                 <li <?php if( $contact == true ) { echo "class=\"active\"";}?>><a href="contact.php">Contact</a></li>
+
               </ul>
             </div>
           </div>

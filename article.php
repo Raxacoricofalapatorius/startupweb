@@ -1,14 +1,4 @@
-<?php
-    /* Connexion à la Base de Données. */
-    try
-    {
-        $bdd = new PDO('mysql:host=localhost;dbname=novus_infosup;charset=utf8', 'root', 'root');
-    }
-    catch(Exception $e)
-    {
-        die('Erreur :'.$e->getMessage());
-    }
-?>
+<?php include('include/BDD.php'); ?>
 
 <?php $blog = true; ?>
 <!DOCTYPE html>
@@ -18,7 +8,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Novus Studio</title>
+    <?php if (isset($_GET['article']))
+      { 
+        $id_article = $_GET['article']; 
+      }
+
+      $reponse = $bdd->prepare('SELECT * FROM articles WHERE id = ?');
+      $reponse->execute(array($id_article));
+
+      while ($articles = $reponse->fetch())
+      {
+        ?><title><?php echo $articles['titre'];?> - Novus Studio</title><?php
+      }
+      ?>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
